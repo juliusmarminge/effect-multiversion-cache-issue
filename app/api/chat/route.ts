@@ -2,13 +2,27 @@ import { MockLanguageModelV1 } from "ai/test";
 import { streamText, simulateReadableStream, createDataStream } from "ai";
 import { Effect, Runtime } from "effect";
 import { runtime as appManagedRuntime } from "@/app/runtime";
+import { UTApi } from "uploadthing/server";
+
+const utapi = new UTApi({
+  token:
+    "eyJhcHBJZCI6ImFwcC0xIiwiYXBpS2V5Ijoic2tfZm9vIiwicmVnaW9ucyI6WyJmcmExIl19",
+});
 
 const generateChatStream = () =>
   Effect.gen(function* () {
     yield* Effect.log("Generating chat stream");
 
-    const dataStream = createDataStream({
-      execute: (dataStream) => {
+  const dataStream = createDataStream({
+    execute: (dataStream) => {
+      if (process.env.IMAGE_GEN) {
+        // do image gen
+        // ...
+
+        // upload image
+        void utapi.uploadFiles(new File([], "test.txt"));
+      } else {
+        // do text gen
         const stream = streamText({
           model: new MockLanguageModelV1({
             doStream: async () => ({
@@ -32,11 +46,12 @@ const generateChatStream = () =>
         });
 
         stream.mergeIntoDataStream(dataStream);
-      },
-    });
-
-    return dataStream;
+      }
+    },
   });
+
+  return dataStream;
+});
 
 /**
  * This breaks the /api/chat route out from being "bundled" in fluid compute
