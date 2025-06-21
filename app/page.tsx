@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 const resolveUrl = (path: string) => {
   const vercel = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
