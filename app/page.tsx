@@ -1,3 +1,5 @@
+import { imaginaryAsyncDbClient } from "./db";
+
 export const dynamic = "force-dynamic";
 
 const resolveUrl = (path: string) => {
@@ -20,11 +22,16 @@ export default async function Home() {
       return null;
     });
 
+  const dbData = await imaginaryAsyncDbClient.get("image");
+
   return (
     <div>
       <h1>Hello Next.js</h1>
       <pre>
         <code>{JSON.stringify(data, null, 4)}</code>
+      </pre>
+      <pre>
+        <code>{JSON.stringify(dbData, null, 4)}</code>
       </pre>
     </div>
   );
