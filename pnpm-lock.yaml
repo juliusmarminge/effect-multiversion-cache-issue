@@ -4,6 +4,14 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  effect@3.14.21:
+    hash: 3bdnziwhovje23ibx635uc6zbe
+    path: patches/effect@3.14.21.patch
+  effect@3.16.8:
+    hash: 7teb7yiyyoekj3wscdvba5egpe
+    path: patches/effect@3.16.8.patch
+
 importers:
 
   .:
@@ -13,13 +21,13 @@ importers:
         version: 0.21.6
       '@effect/platform':
         specifier: 0.85.2
-        version: 0.85.2(effect@3.16.8)
+        version: 0.85.2(effect@3.16.8(patch_hash=7teb7yiyyoekj3wscdvba5egpe))
       ai:
         specifier: ^4.3.16
         version: 4.3.16(react@19.0.0)(zod@3.25.67)
       effect:
         specifier: 3.16.8
-        version: 3.16.8
+        version: 3.16.8(patch_hash=7teb7yiyyoekj3wscdvba5egpe)
       next:
         specifier: 15.1.7
         version: 15.1.7(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -575,16 +583,16 @@ snapshots:
 
   '@effect/language-service@0.21.6': {}
 
-  '@effect/platform@0.81.0(effect@3.14.21)':
+  '@effect/platform@0.81.0(effect@3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe))':
     dependencies:
-      effect: 3.14.21
+      effect: 3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe)
       find-my-way-ts: 0.1.5
       msgpackr: 1.11.4
       multipasta: 0.2.5
 
-  '@effect/platform@0.85.2(effect@3.16.8)':
+  '@effect/platform@0.85.2(effect@3.16.8(patch_hash=7teb7yiyyoekj3wscdvba5egpe))':
     dependencies:
-      effect: 3.16.8
+      effect: 3.16.8(patch_hash=7teb7yiyyoekj3wscdvba5egpe)
       find-my-way-ts: 0.1.5
       msgpackr: 1.11.4
       multipasta: 0.2.5
@@ -744,7 +752,7 @@ snapshots:
   '@uploadthing/shared@7.1.8':
     dependencies:
       '@uploadthing/mime-types': 0.3.5
-      effect: 3.14.21
+      effect: 3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe)
       sqids: 0.3.0
 
   ai@4.3.16(react@19.0.0)(zod@3.25.67):
@@ -798,12 +806,12 @@ snapshots:
 
   diff-match-patch@1.0.5: {}
 
-  effect@3.14.21:
+  effect@3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe):
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
 
-  effect@3.16.8:
+  effect@3.16.8(patch_hash=7teb7yiyyoekj3wscdvba5egpe):
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
@@ -959,11 +967,11 @@ snapshots:
 
   uploadthing@7.7.2(next@15.1.7(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)):
     dependencies:
-      '@effect/platform': 0.81.0(effect@3.14.21)
+      '@effect/platform': 0.81.0(effect@3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe))
       '@standard-schema/spec': 1.0.0-beta.4
       '@uploadthing/mime-types': 0.3.5
       '@uploadthing/shared': 7.1.8
-      effect: 3.14.21
+      effect: 3.14.21(patch_hash=3bdnziwhovje23ibx635uc6zbe)
     optionalDependencies:
       next: 15.1.7(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 

@@ -1,0 +1,26 @@
+diff --git a/dist/cjs/internal/fiberRuntime.js b/dist/cjs/internal/fiberRuntime.js
+index c126492b7f4feaf857d7b799deb997e2276511be..96438dd3dfe566aabc94853c0dcf0175e6943e52 100644
+--- a/dist/cjs/internal/fiberRuntime.js
++++ b/dist/cjs/internal/fiberRuntime.js
+@@ -1136,7 +1136,7 @@ class FiberRuntime extends Effectable.Class {
+         // @ts-expect-error
+         cur = this.currentTracer.context(() => {
+           if (_version !== cur[core.EffectTypeId]._V) {
+-            return core.dieMessage(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
++            console.warn(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
+           }
+           // @ts-expect-error
+           return this[cur._op](cur);
+diff --git a/dist/esm/internal/fiberRuntime.js b/dist/esm/internal/fiberRuntime.js
+index 122d06eaaf7f02f46794cbf829481a5ad8b74ffc..9e3cf0ec9b0f0fa45c334b3407b8fc05a5a6342f 100644
+--- a/dist/esm/internal/fiberRuntime.js
++++ b/dist/esm/internal/fiberRuntime.js
+@@ -1128,7 +1128,7 @@ export class FiberRuntime extends Effectable.Class {
+         // @ts-expect-error
+         cur = this.currentTracer.context(() => {
+           if (_version !== cur[core.EffectTypeId]._V) {
+-            return core.dieMessage(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
++            console.warn(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
+           }
+           // @ts-expect-error
+           return this[cur._op](cur);
