@@ -10,7 +10,10 @@
     "preview": "next build && next start"
   },
   "dependencies": {
+    "@effect/language-service": "0.21.6",
+    "@effect/platform": "0.85.2",
     "ai": "^4.3.16",
+    "effect": "3.16.8",
     "next": "15.1.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -22,5 +25,11 @@
     "@types/react-dom": "^19",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@9.15.4",
+  "pnpm": {
+    "patchedDependencies": {
+      "effect@3.14.21": "patches/effect@3.14.21.patch",
+      "effect@3.16.8": "patches/effect@3.16.8.patch"
+    }
+  }
 }

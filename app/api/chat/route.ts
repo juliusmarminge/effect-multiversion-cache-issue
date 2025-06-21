@@ -1,5 +1,7 @@
 import { MockLanguageModelV1 } from "ai/test";
 import { streamText, simulateReadableStream, createDataStream } from "ai";
+import { Effect, Runtime } from "effect";
+import { runtime as appManagedRuntime } from "@/app/runtime";
 import { UTApi } from "uploadthing/server";
 
 const utapi = new UTApi({
@@ -7,8 +9,9 @@ const utapi = new UTApi({
     "eyJhcHBJZCI6ImFwcC0xIiwiYXBpS2V5Ijoic2tfZm9vIiwicmVnaW9ucyI6WyJmcmExIl19",
 });
 
-const generateChatStream = async () => {
-  console.log("Generating chat stream");
+const generateChatStream = () =>
+  Effect.gen(function* () {
+    yield* Effect.log("Generating chat stream");
 
   const dataStream = createDataStream({
     execute: (dataStream) => {
@@ -48,7 +51,7 @@ const generateChatStream = async () => {
   });
 
   return dataStream;
-};
+});
 
 /**
  * This breaks the /api/chat route out from being "bundled" in fluid compute
@@ -58,14 +61,20 @@ const generateChatStream = async () => {
 export const maxDuration = 799;
 
 async function internalRouteHandler(req: Request) {
-  const stream = await generateChatStream();
+  const runtime = await appManagedRuntime.runtime();
 
-  return new Response(stream, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "X-Vercel-AI-Data-Stream": "v1",
-    },
-  });
+  return generateChatStream().pipe(
+    Effect.map(
+      (stream) =>
+        new Response(stream, {
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            "X-Vercel-AI-Data-Stream": "v1",
+          },
+        })
+    ),
+    Runtime.runPromise(runtime)
+  );
 }
 
 export async function POST(req: Request) {

@@ -1,0 +1,32 @@
+diff --git a/dist/cjs/internal/fiberRuntime.js b/dist/cjs/internal/fiberRuntime.js
+index dee5633b073814a82a36070b2f84bf51c1a0806e..60462fcd9040a134ec97fbc74bd559114ec89e32 100644
+--- a/dist/cjs/internal/fiberRuntime.js
++++ b/dist/cjs/internal/fiberRuntime.js
+@@ -1137,7 +1137,7 @@ class FiberRuntime extends Effectable.Class {
+         // @ts-expect-error
+         cur = this.currentTracer.context(() => {
+           if (_version !== cur[core.EffectTypeId]._V) {
+-            return core.dieMessage(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
++            this.log(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`, internalCause.empty, LogLevel.Warning);
+           }
+           // @ts-expect-error
+           return this[cur._op](cur);
+diff --git a/dist/esm/internal/fiberRuntime.js b/dist/esm/internal/fiberRuntime.js
+index 13ca77a07dda3aca50eaa2507a7fa917a132535f..65c19754c80749e2b58f4040c5f229039c70388e 100644
+--- a/dist/esm/internal/fiberRuntime.js
++++ b/dist/esm/internal/fiberRuntime.js
+@@ -1,4 +1,4 @@
+-import * as RA from "../Array.js";
++ import * as RA from "../Array.js";
+ import * as Boolean from "../Boolean.js";
+ import * as Chunk from "../Chunk.js";
+ import * as Context from "../Context.js";
+@@ -1128,7 +1128,7 @@ export class FiberRuntime extends Effectable.Class {
+         // @ts-expect-error
+         cur = this.currentTracer.context(() => {
+           if (_version !== cur[core.EffectTypeId]._V) {
+-            return core.dieMessage(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`);
++            this.log(`Cannot execute an Effect versioned ${cur[core.EffectTypeId]._V} with a Runtime of version ${version.getCurrentVersion()}`, internalCause.empty, LogLevel.Warning);
+           }
+           // @ts-expect-error
+           return this[cur._op](cur);
