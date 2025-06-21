@@ -1,4 +1,5 @@
 import { Effect } from "effect";
+import { imaginaryAsyncDbClient, runQuery } from "./db";
 
 export const dynamic = "force-dynamic";
 
@@ -22,13 +23,21 @@ export default async function Home() {
       return null;
     });
 
-  await Effect.log("Hello Effect").pipe(Effect.runPromise)
+  const dbData = await runQuery("image").pipe(
+    Effect.tap((data) =>
+      Effect.log("Got data").pipe(Effect.annotateLogs({ data }))
+    ),
+    Effect.runPromise
+  );
 
   return (
     <div>
       <h1>Hello Next.js</h1>
       <pre>
         <code>{JSON.stringify(data, null, 4)}</code>
+      </pre>
+      <pre>
+        <code>{JSON.stringify(dbData, null, 4)}</code>
       </pre>
     </div>
   );
