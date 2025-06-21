@@ -4,10 +4,23 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@effect/platform': 0.85.2
+  effect: 3.16.8
+
 importers:
 
   .:
     dependencies:
+      '@effect/language-service':
+        specifier: 0.21.6
+        version: 0.21.6
+      '@effect/platform':
+        specifier: 0.85.2
+        version: 0.85.2(effect@3.16.8)
+      effect:
+        specifier: 3.16.8
+        version: 3.16.8
       next:
         specifier: 15.4.0-canary.90
         version: 15.4.0-canary.90(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -36,10 +49,13 @@ importers:
 
 packages:
 
-  '@effect/platform@0.81.0':
-    resolution: {integrity: sha512-RZ0pqpSUET0Ab3CBjOhJ12C2/vWLQsy+SLJbGNxjcOm9xZAwQowggWCs4S3ZXhdnNTR5WJHH02WlAWHJDaMKhA==}
+  '@effect/language-service@0.21.6':
+    resolution: {integrity: sha512-5gJnx1SRNyx6RtHWWjxoZq/eqrlCLgMI5Uw/2onmxGd62QMQMJqDvNiyFg9rtdtFYbM4M5q3Z86Tk0IkZmCK2A==}
+
+  '@effect/platform@0.85.2':
+    resolution: {integrity: sha512-zIRixbQeO6QniR0k2mwR7DmR2HO1w6+qQlzQ5nb8lyPyPgd1gV9wo/9yBeB6zRC+CGnxiUiYsRMamclVISuxLw==}
     peerDependencies:
-      effect: ^3.14.21
+      effect: 3.16.8
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -294,8 +310,8 @@ packages:
     resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
     engines: {node: '>=8'}
 
-  effect@3.14.21:
-    resolution: {integrity: sha512-TKR7zfWcuZgEdWd+oIGA8LdREj/c+1Q0wz4pWqQtYT7VHnkW/QQEYCXgrDI5dT6lJgRTgyQAC1bAnpAf6MdjIA==}
+  effect@3.16.8:
+    resolution: {integrity: sha512-E4U0MZFBun99myxOogy9ZZ1c3IYR47L/A5GqCP9Lp+6ORag0YLmGHOrYxQ3agN1FOMTrElgtJmciicwnHdE+Ug==}
 
   fast-check@3.23.2:
     resolution: {integrity: sha512-h5+1OzzfCC3Ef7VbtKdcv7zsstUQwUDlYpUTvjeUsJAssPgLn7QzbboPtL5ro04Mq0rPOsMzl7q5hIbRs2wD1A==}
@@ -435,9 +451,11 @@ packages:
 
 snapshots:
 
-  '@effect/platform@0.81.0(effect@3.14.21)':
+  '@effect/language-service@0.21.6': {}
+
+  '@effect/platform@0.85.2(effect@3.16.8)':
     dependencies:
-      effect: 3.14.21
+      effect: 3.16.8
       find-my-way-ts: 0.1.5
       msgpackr: 1.11.4
       multipasta: 0.2.5
@@ -597,7 +615,7 @@ snapshots:
   '@uploadthing/shared@7.1.8':
     dependencies:
       '@uploadthing/mime-types': 0.3.5
-      effect: 3.14.21
+      effect: 3.16.8
       sqids: 0.3.0
 
   caniuse-lite@1.0.30001724: {}
@@ -629,7 +647,7 @@ snapshots:
   detect-libc@2.0.4:
     optional: true
 
-  effect@3.14.21:
+  effect@3.16.8:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
@@ -764,10 +782,10 @@ snapshots:
 
   uploadthing@7.7.2(next@15.4.0-canary.90(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
     dependencies:
-      '@effect/platform': 0.81.0(effect@3.14.21)
+      '@effect/platform': 0.85.2(effect@3.16.8)
       '@standard-schema/spec': 1.0.0-beta.4
       '@uploadthing/mime-types': 0.3.5
       '@uploadthing/shared': 7.1.8
-      effect: 3.14.21
+      effect: 3.16.8
     optionalDependencies:
       next: 15.4.0-canary.90(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

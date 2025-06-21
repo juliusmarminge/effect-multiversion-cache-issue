@@ -1,3 +1,5 @@
+import { Effect } from "effect";
+
 export const dynamic = "force-dynamic";
 
 const resolveUrl = (path: string) => {
@@ -10,6 +12,8 @@ const resolveUrl = (path: string) => {
 
 export default async function Home() {
   const data = await (await fetch(resolveUrl("/api/uploadthing"))).json();
+
+  await Effect.log("Hello Effect").pipe(Effect.runPromise)
 
   return (
     <div>

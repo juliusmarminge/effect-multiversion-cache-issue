@@ -10,6 +10,9 @@
     "preview": "next build && next start"
   },
   "dependencies": {
+    "@effect/language-service": "0.21.6",
+    "@effect/platform": "0.85.2",
+    "effect": "3.16.8",
     "next": "15.4.0-canary.90",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -20,6 +23,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@effect/platform": "0.85.2",
+      "effect": "3.16.8"
+    }
   },
   "packageManager": "pnpm@9.15.4"
 }
