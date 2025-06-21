@@ -12,7 +12,7 @@ const generateChatStream = async () => {
 
   const dataStream = createDataStream({
     execute: (dataStream) => {
-      if (Math.random() * 100 > 0.01) {
+      if (process.env.IMAGE_GEN) {
         // do image gen
         // ...
 
