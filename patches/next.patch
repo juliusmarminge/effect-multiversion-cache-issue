@@ -1,0 +1,17 @@
+diff --git a/dist/build/create-compiler-aliases.js b/dist/build/create-compiler-aliases.js
+index fd51cc2478090fbea260f1bac962f22ede54cfbb..58b77db3e474bf046177a84a58aac9ca2f828af3 100644
+--- a/dist/build/create-compiler-aliases.js
++++ b/dist/build/create-compiler-aliases.js
+@@ -163,9 +163,9 @@ function createWebpackAliases({ distDir, isClient, isEdgeServer, isNodeServer, d
+         [_constants.DOT_NEXT_ALIAS]: distDir,
+         ...isClient || isEdgeServer ? getOptimizedModuleAliases() : {},
+         ...reactProductionProfiling ? getReactProfilingInProduction() : {},
+-        // For Node server, we need to re-alias the package imports to prefer to
+-        // resolve to the ESM export.
+-        ...isNodeServer ? getBarrelOptimizationAliases(config.experimental.optimizePackageImports || []) : {},
++        // // For Node server, we need to re-alias the package imports to prefer to
++        // // resolve to the ESM export.
++        // ...isNodeServer ? getBarrelOptimizationAliases(config.experimental.optimizePackageImports || []) : {},
+         [_constants.RSC_ACTION_VALIDATE_ALIAS]: 'next/dist/build/webpack/loaders/next-flight-loader/action-validate',
+         [_constants.RSC_ACTION_CLIENT_WRAPPER_ALIAS]: 'next/dist/build/webpack/loaders/next-flight-loader/action-client-wrapper',
+         [_constants.RSC_ACTION_PROXY_ALIAS]: 'next/dist/build/webpack/loaders/next-flight-loader/server-reference',

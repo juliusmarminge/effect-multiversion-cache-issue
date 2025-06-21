@@ -29,7 +29,8 @@
   "pnpm": {
     "patchedDependencies": {
       "effect@3.14.21": "patches/effect@3.14.21.patch",
-      "effect@3.16.8": "patches/effect@3.16.8.patch"
+      "effect@3.16.8": "patches/effect@3.16.8.patch",
+      "next": "patches/next.patch"
     }
   }
 }
