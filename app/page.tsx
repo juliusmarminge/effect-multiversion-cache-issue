@@ -1,3 +1,4 @@
+import { ChatTest } from "./chat";
 import { imaginaryAsyncDbClient } from "./db";
 
 export const dynamic = "force-dynamic";
@@ -33,6 +34,7 @@ export default async function Home() {
       <pre>
         <code>{JSON.stringify(dbData, null, 4)}</code>
       </pre>
+      <ChatTest />
     </div>
   );
 }
