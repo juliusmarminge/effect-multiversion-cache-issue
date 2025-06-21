@@ -1,6 +1,7 @@
 import { Effect } from "effect";
 import { runQuery } from "./db";
 import { runtime } from "./runtime";
+import { ChatTest } from "./chat";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,7 @@ export default async function Home() {
       <pre>
         <code>{JSON.stringify(dbData, null, 4)}</code>
       </pre>
+      <ChatTest />
     </div>
   );
 }
