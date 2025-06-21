@@ -25,11 +25,5 @@
     "@types/react-dom": "^19",
     "typescript": "^5"
   },
-  "pnpm": {
-    "overrides": {
-      "@effect/platform": "0.85.2",
-      "effect": "3.16.8"
-    }
-  },
   "packageManager": "pnpm@9.15.4"
 }

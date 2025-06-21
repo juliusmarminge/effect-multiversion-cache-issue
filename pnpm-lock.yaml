@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@effect/platform': 0.85.2
-  effect: 3.16.8
-
 importers:
 
   .:
@@ -81,10 +77,15 @@ packages:
   '@effect/language-service@0.21.6':
     resolution: {integrity: sha512-5gJnx1SRNyx6RtHWWjxoZq/eqrlCLgMI5Uw/2onmxGd62QMQMJqDvNiyFg9rtdtFYbM4M5q3Z86Tk0IkZmCK2A==}
 
+  '@effect/platform@0.81.0':
+    resolution: {integrity: sha512-RZ0pqpSUET0Ab3CBjOhJ12C2/vWLQsy+SLJbGNxjcOm9xZAwQowggWCs4S3ZXhdnNTR5WJHH02WlAWHJDaMKhA==}
+    peerDependencies:
+      effect: ^3.14.21
+
   '@effect/platform@0.85.2':
     resolution: {integrity: sha512-zIRixbQeO6QniR0k2mwR7DmR2HO1w6+qQlzQ5nb8lyPyPgd1gV9wo/9yBeB6zRC+CGnxiUiYsRMamclVISuxLw==}
     peerDependencies:
-      effect: 3.16.8
+      effect: ^3.16.8
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -363,6 +364,9 @@ packages:
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
 
+  effect@3.14.21:
+    resolution: {integrity: sha512-TKR7zfWcuZgEdWd+oIGA8LdREj/c+1Q0wz4pWqQtYT7VHnkW/QQEYCXgrDI5dT6lJgRTgyQAC1bAnpAf6MdjIA==}
+
   effect@3.16.8:
     resolution: {integrity: sha512-E4U0MZFBun99myxOogy9ZZ1c3IYR47L/A5GqCP9Lp+6ORag0YLmGHOrYxQ3agN1FOMTrElgtJmciicwnHdE+Ug==}
 
@@ -571,6 +575,13 @@ snapshots:
 
   '@effect/language-service@0.21.6': {}
 
+  '@effect/platform@0.81.0(effect@3.14.21)':
+    dependencies:
+      effect: 3.14.21
+      find-my-way-ts: 0.1.5
+      msgpackr: 1.11.4
+      multipasta: 0.2.5
+
   '@effect/platform@0.85.2(effect@3.16.8)':
     dependencies:
       effect: 3.16.8
@@ -733,7 +744,7 @@ snapshots:
   '@uploadthing/shared@7.1.8':
     dependencies:
       '@uploadthing/mime-types': 0.3.5
-      effect: 3.16.8
+      effect: 3.14.21
       sqids: 0.3.0
 
   ai@4.3.16(react@19.0.0)(zod@3.25.67):
@@ -786,6 +797,11 @@ snapshots:
     optional: true
 
   diff-match-patch@1.0.5: {}
+
+  effect@3.14.21:
+    dependencies:
+      '@standard-schema/spec': 1.0.0
+      fast-check: 3.23.2
 
   effect@3.16.8:
     dependencies:
@@ -943,11 +959,11 @@ snapshots:
 
   uploadthing@7.7.2(next@15.1.7(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)):
     dependencies:
-      '@effect/platform': 0.85.2(effect@3.16.8)
+      '@effect/platform': 0.81.0(effect@3.14.21)
       '@standard-schema/spec': 1.0.0-beta.4
       '@uploadthing/mime-types': 0.3.5
       '@uploadthing/shared': 7.1.8
-      effect: 3.16.8
+      effect: 3.14.21
     optionalDependencies:
       next: 15.1.7(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
