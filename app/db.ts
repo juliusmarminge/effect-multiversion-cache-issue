@@ -1,4 +1,4 @@
-import { Context, Data, Effect, Schema } from "effect";
+import { Context, Data, Effect, Layer } from "effect";
 
 const data = new Map<string, unknown>();
 
@@ -10,14 +10,18 @@ export const imaginaryAsyncDbClient = {
 export class ImaginaryDbClient extends Context.Tag("ImaginaryDbClient")<
   ImaginaryDbClient,
   typeof imaginaryAsyncDbClient
->() {}
+>() {
+  static Live = Layer.succeed(this, imaginaryAsyncDbClient);
+}
 
 export class ImaginaryDbError extends Data.TaggedError("ImaginaryDbError")<{
   cause: unknown;
 }> {}
 
 export const runQuery = <T>(key: string) =>
-  Effect.tryPromise({
-    try: () => imaginaryAsyncDbClient.get<T>(key),
-    catch: (error) => new ImaginaryDbError({ cause: error }),
-  });
+  Effect.flatMap(ImaginaryDbClient, (client) =>
+    Effect.tryPromise({
+      try: () => client.get<T>(key),
+      catch: (error) => new ImaginaryDbError({ cause: error }),
+    })
+  );

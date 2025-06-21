@@ -1,5 +1,6 @@
 import { Effect } from "effect";
-import { imaginaryAsyncDbClient, runQuery } from "./db";
+import { runQuery } from "./db";
+import { runtime } from "./runtime";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,7 @@ export default async function Home() {
     Effect.tap((data) =>
       Effect.log("Got data").pipe(Effect.annotateLogs({ data }))
     ),
-    Effect.runPromise
+    runtime.runPromise
   );
 
   return (
